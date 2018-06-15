@@ -10,10 +10,10 @@ if (!extension_loaded('curl')) {
     die();
 } else {
     if (empty($PUBLICKEY)) {
-        echo PHP_EOL.' You need to specify \'publickey\' value in forge.php, Exiting.'.PHP_EOL.PHP_EOL;
+        echo PHP_EOL.' You need to specify \'publickey\' value in forging.php, Exiting.'.PHP_EOL.PHP_EOL;
         die();
     } elseif (empty($PASSWORD)) {
-              echo PHP_EOL.' You need to specify \'password\' value in forge.php, Exiting.'.PHP_EOL.PHP_EOL;
+              echo PHP_EOL.' You need to specify \'password\' value in forging.php, Exiting.'.PHP_EOL.PHP_EOL;
               die();
     } else {
         if (empty(@file_get_contents('http://127.0.0.1:5000/api/node/status/forging'))) {
