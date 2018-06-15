@@ -38,8 +38,9 @@ if (!extension_loaded('curl')) {
             if (strpos($response, '"forging":true')) {
                 echo PHP_EOL.' Your node is forging now :)'.PHP_EOL.PHP_EOL;
             } else {
-                     echo PHP_EOL.' Something goes wrong, cannot check forging status'.PHP_EOL.
-                                  ' Probably bad publickey or password, Exiting.'.PHP_EOL.PHP_EOL;
+                     echo PHP_EOL.' Something goes wrong, cannot check forging status'.PHP_EOL;
+                     echo PHP_EOL.' RAW Response: '.$response.PHP_EOL;
+                     echo PHP_EOL.' Probably bad publickey or password, Exiting.'.PHP_EOL.PHP_EOL;
                      die();
             }
 
