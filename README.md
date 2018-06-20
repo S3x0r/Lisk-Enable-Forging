@@ -1,19 +1,19 @@
 # Tool to Enable Forging on Lisk Node
 
-If PHP is not present:
+If PHP is not present:<br>
 sudo apt-get install php<br>
 sudo apt-get install php-curl<br>
+<br>
 
-
-Download:
+Download:<br>
 wget https://raw.githubusercontent.com/S3x0r/Lisk-Enable-Forging/master/forging.php
+<br>
 
+Configure:<br>
+nano forging.php<br>
+$PUBLICKEY = ''; /* <----- your publickey */<br>
+$PASSWORD = '';  /* <----- your password */<br>
+<br>
 
-Configure:
-nano forging.php
-$PUBLICKEY = ''; /* <----- your publickey */
-$PASSWORD = '';  /* <----- your password */
-
-
-Usage:
+Usage:<br>
 php forging.php
