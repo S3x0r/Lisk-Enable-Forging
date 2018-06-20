@@ -1,8 +1,8 @@
 # Tool to Enable Forging on Lisk Node
 
 If PHP is not present:
-sudo apt-get install php
-sudo apt-get install php-curl
+sudo apt-get install php<br>
+sudo apt-get install php-curl<br>
 
 
 Download:
