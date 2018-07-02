@@ -6,24 +6,38 @@ $PASSWORD = '';  /* <----- your password */
 
 /* optional */
 $NODE_IP   = '127.0.0.1';
-$NODE_PORT = '7000'; /* ports: 5000 betanet, 7000 testnet, 8000 mainnet */
+$NODE_PORT = '7000'; /* ports: 5000 - betanet, 7000 - testnet, 8000 - mainnet */
 
 
 if (!extension_loaded('curl')) {
-    echo PHP_EOL.' I need php curl extension to work, Exiting.'.PHP_EOL.PHP_EOL;
+    echo PHP_EOL.' Error:'.PHP_EOL;
+    echo ' I need php curl extension to work, Exiting.'.PHP_EOL.PHP_EOL;
+    echo ' Minions advise:'.PHP_EOL;
+    echo ' 1. To install php curl extension:'.PHP_EOL;
+    echo '    sudo apt-get install php-curl'.PHP_EOL.PHP_EOL;
     die();
 } else {
     if (empty($PUBLICKEY)) {
-        echo PHP_EOL.' You need to specify \'publickey\' value in forging.php, Exiting.'.PHP_EOL.PHP_EOL;
+        echo PHP_EOL.' Error:'.PHP_EOL;
+        echo ' You need to specify your Public Key: \'$PUBLICKEY\' value in forging.php, Exiting.'.PHP_EOL.PHP_EOL;
         die();
     } elseif (empty($PASSWORD)) {
-              echo PHP_EOL.' You need to specify \'password\' value in forging.php, Exiting.'.PHP_EOL.PHP_EOL;
+              echo PHP_EOL.' Error:'.PHP_EOL;
+              echo ' You need to specify your Password: \'$PASSWORD\' value in forging.php, Exiting.'.PHP_EOL.PHP_EOL;
               die();
     } else {
         if (empty(@file_get_contents('http://'.$NODE_IP.':'.$NODE_PORT.'/api/node/status/forging'))) {
-            echo PHP_EOL.' Cannot connect to node ('.$NODE_IP.':'.$NODE_PORT.
-                         '), node not runned or forging.php'.PHP_EOL;
-            echo ' was used not on this server where node is located, Exiting.'.PHP_EOL.PHP_EOL;
+            echo PHP_EOL.' Error:'.PHP_EOL;
+            echo ' Cannot connect to your core node ('.$NODE_IP.':'.$NODE_PORT.'), node not runned, bad port or'.PHP_EOL;
+            echo ' forging.php was used not on this server where node is located, Exiting.'.PHP_EOL.PHP_EOL;
+            echo ' Minions advise:'.PHP_EOL;
+            echo ' 1. Check if you specified good node port: \'$NODE_PORT\' in forging.php'.PHP_EOL;
+            echo '    (5000 - betanet, 7000 - testnet, 8000 - mainnet)'.PHP_EOL.PHP_EOL;
+            echo ' 2. Are you using forging.php on server where core is runned?'.PHP_EOL.PHP_EOL;
+            echo ' 3. Check if you specified good node ip address: \'$NODE_IP\' in forging.php'.PHP_EOL;
+            echo '    (runned locally ip should be: \'127.0.0.1\')'.PHP_EOL.PHP_EOL;
+            echo ' 4. Maybe core after starting exited?'.PHP_EOL;
+            echo '    (Check your node config.json and \'logs\' directory)'.PHP_EOL.PHP_EOL;
             die();
         } else {
                  $data = ['forging'=>true, 'publicKey'=>$PUBLICKEY, 'password'=>$PASSWORD];
@@ -76,15 +90,25 @@ if (!extension_loaded('curl')) {
             } else {
                 if (strpos($response, 'Object didn\'t pass validation for format publicKey') or
                     strpos($response, 'not found')) {
-                    echo PHP_EOL.' Bad Public Key, check \'$PUBLICKEY\' value in forging.php, Exiting.'.PHP_EOL.PHP_EOL;
+                    echo PHP_EOL.' Error:'.PHP_EOL;
+                    echo ' Bad Public Key, check \'$PUBLICKEY\' value in forging.php,'.PHP_EOL;
+                    echo ' or your node is not fully synced yet, Exiting.'.PHP_EOL.PHP_EOL;
+                    echo ' Minions advise:'.PHP_EOL;
+                    echo ' 1. Check if your node is fully synced by typing in lisk core directory:'.PHP_EOL;
+                    echo '    bash lish.sh logs | grep "height:"'.PHP_EOL;
+                    echo '    And compare your height with height from explorer.'.PHP_EOL.PHP_EOL;
+                    echo ' 2. Check if you have good Public Key in \'$PUBLICKEY\' value in forging.php'.PHP_EOL;
+                    echo '    You can compare your Public Key also in explorer.'.PHP_EOL.PHP_EOL;
                     die();
                 } elseif (strpos($response, 'Invalid password and public key combination')) {
-                           echo PHP_EOL.' Bad Password, check \'$PASSWORD\' value in forging.php, Exiting.'
+                          echo PHP_EOL.' Error:'.PHP_EOL;
+                          echo ' Bad Password, check \'$PASSWORD\' value in forging.php, Exiting.'
                                 .PHP_EOL.PHP_EOL;
                            die();
                 } else {
-                         echo PHP_EOL.' Something goes wrong, cannot check forging status'.PHP_EOL;
-                         echo PHP_EOL.' RAW Response: '.$response.PHP_EOL;
+                         echo PHP_EOL.' Error:'.PHP_EOL;
+                         echo ' Something goes wrong, cannot check forging status'.PHP_EOL;
+                         echo PHP_EOL.' RAW Response: '.$response.PHP_EOL.PHP_EOL;
                          die();
                 }
             }

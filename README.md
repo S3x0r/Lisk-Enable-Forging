@@ -1,5 +1,9 @@
 # Tool to Enable Forging on Lisk Node
 
+Usage:<br>
+php forging.php<br>
+<br>
+
 If PHP is not present:<br>
 sudo apt-get install php<br>
 sudo apt-get install php-curl<br>
@@ -15,5 +19,12 @@ $PUBLICKEY = '' <----- your publickey<br>
 $PASSWORD = ''  <----- your password<br>
 <br>
 
-Usage:<br>
-php forging.php
+Optional:<br>
+$NODE_IP   = '127.0.0.1' <----- your node ip address<br>
+$NODE_PORT = '7000' <----- your node port<br>
+<br>
+
+Ports:<br>
+5000 - betanet<br>
+7000 - testnet<br>
+8000 - mainnet<br>
