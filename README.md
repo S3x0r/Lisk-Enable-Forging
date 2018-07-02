@@ -14,7 +14,7 @@ wget https://raw.githubusercontent.com/S3x0r/Lisk-Enable-Forging/master/forging.
 <br>
 
 Configure:<br>
-nano forging.php<br>
+nano config.php<br>
 $PUBLICKEY = '' <----- your publickey<br>
 $PASSWORD = ''  <----- your password<br>
 <br>
