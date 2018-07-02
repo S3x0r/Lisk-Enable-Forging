@@ -10,7 +10,7 @@ sudo apt-get install php-curl<br>
 <br>
 
 Download:<br>
-wget https://raw.githubusercontent.com/S3x0r/Lisk-Enable-Forging/master/forging.php
+wget https://raw.githubusercontent.com/S3x0r/Lisk-Enable-Forging/master/forging.php & wget https://raw.githubusercontent.com/S3x0r/Lisk-Enable-Forging/master/config.php
 <br>
 
 Configure:<br>
