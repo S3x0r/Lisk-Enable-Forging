@@ -12,11 +12,11 @@ if (is_file('config.php')) {
     } else {
         if (empty($PUBLICKEY)) {
             echo PHP_EOL.' Error:'.PHP_EOL;
-            echo ' You need to specify your Public Key: \'$PUBLICKEY\' value in forging.php, Exiting.'.PHP_EOL.PHP_EOL;
+            echo ' You need to specify your Public Key: \'$PUBLICKEY\' value in config.php, Exiting.'.PHP_EOL.PHP_EOL;
             die();
         } elseif (empty($PASSWORD)) {
                   echo PHP_EOL.' Error:'.PHP_EOL;
-                  echo ' You need to specify your Password: \'$PASSWORD\' value in forging.php, Exiting.'.PHP_EOL.PHP_EOL;
+                  echo ' You need to specify your Password: \'$PASSWORD\' value in config.php, Exiting.'.PHP_EOL.PHP_EOL;
                   die();
         } else {
             if (empty(@file_get_contents('http://'.$NODE_IP.':'.$NODE_PORT.'/api/node/status/forging'))) {
@@ -96,7 +96,7 @@ if (is_file('config.php')) {
                         die();
                     } elseif (strpos($response, 'Invalid password and public key combination')) {
                               echo PHP_EOL.' Error:'.PHP_EOL;
-                              echo ' Bad Password, check \'$PASSWORD\' value in forging.php, Exiting.'
+                              echo ' Bad Password, check \'$PASSWORD\' value in config.php, Exiting.'
                                     .PHP_EOL.PHP_EOL;
                               die();
                     } else {
