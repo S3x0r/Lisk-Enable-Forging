@@ -92,6 +92,7 @@ if (is_file('config.php')) {
                         echo '    And compare your height with height from explorer.'.PHP_EOL.PHP_EOL;
                         echo ' 2. Check if you have good Public Key in \'$PUBLICKEY\' value in forging.php'.PHP_EOL;
                         echo '    You can compare your Public Key also in explorer.'.PHP_EOL.PHP_EOL;
+                        echo ' 3. Check if publicKey is added to node config.json under forging/delegates section'.PHP_EOL.PHP_EOL;
                         die();
                     } elseif (strpos($response, 'Invalid password and public key combination')) {
                               echo PHP_EOL.' Error:'.PHP_EOL;
