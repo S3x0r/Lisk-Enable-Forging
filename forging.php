@@ -101,7 +101,7 @@ if (is_file('config.php')) {
                               die();
                     } else {
                              echo PHP_EOL.' Error:'.PHP_EOL;
-                             echo ' Something goes wrong, cannot check forging status'.PHP_EOL;
+                             echo ' Something goes wrong, cannot set forging status :('.PHP_EOL;
                              echo PHP_EOL.' RAW Response: '.$response.PHP_EOL.PHP_EOL;
                              die();
                     }
