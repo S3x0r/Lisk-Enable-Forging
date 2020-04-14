@@ -18,7 +18,6 @@ nano config.php<br>
 $PUBLICKEY = '' <----- your publickey<br>
 $PASSWORD = ''  <----- your password<br>
 <br>
-
 Optional:<br>
 $NODE_IP   = '127.0.0.1' <----- your node ip address<br>
 $NODE_PORT = '7000' <----- your node port<br>
