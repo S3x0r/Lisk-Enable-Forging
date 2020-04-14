@@ -22,6 +22,7 @@ $PASSWORD = ''  <----- your password<br>
 Optional:<br>
 $NODE_IP   = '127.0.0.1' <----- your node ip address<br>
 $NODE_PORT = '7000' <----- your node port<br>
+$NODE_HTT = 'http' <----- http or https<br>
 <br>
 
 Ports:<br>
