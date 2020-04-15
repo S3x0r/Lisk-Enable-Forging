@@ -8,7 +8,6 @@ if (is_file('config.php')) {
              " Minions advise:\n".
              " 1. To install php curl extension in Ubuntu:\n".
              "    sudo apt-get install php-curl\n\n";
-        exit;
     } else {
         if (empty($PUBLICKEY)) {
             exit("\n Error:\n You need to specify your Public Key value: 'PUBLICKEY' in config.php, Exiting.\n\n");
@@ -27,7 +26,6 @@ if (is_file('config.php')) {
                      "    (runned locally ip should be: '127.0.0.1')\n\n".
                      " 4. Maybe core after starting exited?\n".
                      "    (Check your node config.json and 'logs' directory)\n\n";
-                exit;
             } else {
                      $data = ['forging'=>true, 'publicKey'=>$PUBLICKEY, 'password'=>$PASSWORD];
 
@@ -88,7 +86,6 @@ if (is_file('config.php')) {
                              " 2. Check if you have good Public Key in 'PUBLICKEY' value in forging.php\n".
                              "    You can compare your Public Key also in explorer.\n\n".
                              " 3. Check if publicKey is added to node config.json under forging/delegates section\n\n";
-                        exit;
                     } elseif (strpos($response, 'Invalid password and public key combination')) {
                               exit("\n Error:\n Bad Password, check 'PASSWORD' value in config.php, Exiting.\n\n");
                     } else {
